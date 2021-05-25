@@ -46,6 +46,7 @@ class ListScreen extends StatelessWidget {
           ],
         ),
       )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Theme.of(context).primaryColor,
