@@ -60,18 +60,24 @@ class ListScreen extends StatelessWidget {
               context: context,
               builder: (builder) {
                 return SimpleDialog(
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
+                  backgroundColor: Colors.grey[700],
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   title: Row(
                     children: [
                       Text(
                         'Add Todo',
-                        style: TextStyle(fontSize: 20.0),
+                        style: TextStyle(fontSize: 20.0, color: Colors.white),
                       ),
                       Spacer(),
                       IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.cancel))
+                          icon: Icon(
+                            Icons.cancel,
+                            color: Colors.grey[200],
+                          ))
                     ],
                   ),
                   children: [
