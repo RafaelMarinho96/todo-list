@@ -12,8 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ListScreen(),
       theme: ThemeData(
-          primarySwatch: Colors.pink,
-          scaffoldBackgroundColor: Colors.grey[900]),
+          primarySwatch: Colors.pink, scaffoldBackgroundColor: Colors.black),
     );
   }
 }
