@@ -4,6 +4,7 @@ class ListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.all(25.0),
@@ -81,9 +82,19 @@ class ListScreen extends StatelessWidget {
                     ],
                   ),
                   children: [
-                    Container(
-                      height: 500,
+                    Divider(),
+                    TextFormField(
+                      autofocus: true,
+                      style: TextStyle(
+                          fontSize: 18.0, height: 1.5, color: Colors.white),
+                      decoration: InputDecoration(
+                          hintText: 'Write a task',
+                          hintStyle: TextStyle(color: Colors.white30),
+                          border: InputBorder.none),
+                    ),
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
+                      height: 50.0,
                     )
                   ],
                 );
