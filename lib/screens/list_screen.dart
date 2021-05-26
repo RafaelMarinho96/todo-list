@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ListScreen extends StatelessWidget {
+class ListScreen extends StatefulWidget {
+  @override
+  _ListScreenState createState() => _ListScreenState();
+}
+
+class _ListScreenState extends State<ListScreen> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +29,10 @@ class ListScreen extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            ListView.builder(
+            ListView.separated(
+                separatorBuilder: (context, index) => Divider(
+                      color: Colors.grey[800],
+                    ),
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (context, index) {
@@ -42,10 +52,12 @@ class ListScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           shape: BoxShape.circle),
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
+                      child: isChecked
+                          ? Icon(
+                              Icons.check,
+                              color: Colors.white,
+                            )
+                          : Container(),
                     ),
                   );
                 })
