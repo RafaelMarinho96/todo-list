@@ -93,8 +93,22 @@ class ListScreen extends StatelessWidget {
                           border: InputBorder.none),
                     ),
                     SizedBox(
+                      height: 20.0,
+                    ),
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: 50.0,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Add',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        style: TextButton.styleFrom(
+                            backgroundColor: Theme.of(context).primaryColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0))),
+                      ),
                     )
                   ],
                 );
