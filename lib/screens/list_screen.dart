@@ -7,6 +7,7 @@ class ListScreen extends StatefulWidget {
 
 class _ListScreenState extends State<ListScreen> {
   bool isChecked = false;
+  TextEditingController titleController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,32 +37,44 @@ class _ListScreenState extends State<ListScreen> {
                 shrinkWrap: true,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    onTap: () {
-                      setState(() {
-                        isChecked = !isChecked;
-                      });
-                    },
-                    title: Text(
-                      'My personal Item',
-                      style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey[200]),
+                  return Dismissible(
+                    key: Key(index.toString()),
+                    background: Container(
+                      padding: EdgeInsets.only(left: 20.0),
+                      alignment: Alignment.centerLeft,
+                      child: Icon(Icons.delete),
+                      color: Colors.red,
                     ),
-                    leading: Container(
-                      padding: EdgeInsets.all(2),
-                      width: 30.0,
-                      height: 30.0,
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          shape: BoxShape.circle),
-                      child: isChecked
-                          ? Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            )
-                          : Container(),
+                    onDismissed: (direction) {
+                      print('Removed');
+                    },
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
+                      title: Text(
+                        'My personal Item',
+                        style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey[200]),
+                      ),
+                      leading: Container(
+                        padding: EdgeInsets.all(2),
+                        width: 30.0,
+                        height: 30.0,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            shape: BoxShape.circle),
+                        child: isChecked
+                            ? Icon(
+                                Icons.check,
+                                color: Colors.white,
+                              )
+                            : Container(),
+                      ),
                     ),
                   );
                 })
@@ -100,6 +113,7 @@ class _ListScreenState extends State<ListScreen> {
                   children: [
                     Divider(),
                     TextFormField(
+                      controller: titleController,
                       autofocus: true,
                       style: TextStyle(
                           fontSize: 18.0, height: 1.5, color: Colors.white),
@@ -115,7 +129,12 @@ class _ListScreenState extends State<ListScreen> {
                       width: MediaQuery.of(context).size.width,
                       height: 50.0,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (titleController.text.isNotEmpty) {
+                            print('Publishing');
+                            Navigator.pop(context);
+                          }
+                        },
                         child: Text(
                           'Add',
                           style: TextStyle(color: Colors.white),
