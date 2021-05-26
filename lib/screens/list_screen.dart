@@ -37,7 +37,11 @@ class _ListScreenState extends State<ListScreen> {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        isChecked = !isChecked;
+                      });
+                    },
                     title: Text(
                       'My personal Item',
                       style: TextStyle(
