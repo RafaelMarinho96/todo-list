@@ -30,7 +30,7 @@ class DatabaseService {
     }
   }
 
-  Stream<List<Todo>?> listTodos() {
+  Stream<List<Todo>?> listAll() {
     return allCollection
         .snapshots()
         .map((snapshot) => todoFromFirestore(snapshot));

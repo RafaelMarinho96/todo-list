@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/todo.dart';
 import 'package:todo_list/services/database_service.dart';
+import 'package:todo_list/widgets/loading.dart';
 
 class ListScreen extends StatefulWidget {
   @override
@@ -15,73 +17,81 @@ class _ListScreenState extends State<ListScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.all(25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Personal List',
-              style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            Divider(),
-            SizedBox(
-              height: 20.0,
-            ),
-            ListView.separated(
-                separatorBuilder: (context, index) => Divider(
-                      color: Colors.grey[800],
-                    ),
-                shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Dismissible(
-                    key: Key(index.toString()),
-                    background: Container(
-                      padding: EdgeInsets.only(left: 20.0),
-                      alignment: Alignment.centerLeft,
-                      child: Icon(Icons.delete),
-                      color: Colors.red,
-                    ),
-                    onDismissed: (direction) {
-                      print('Removed');
-                    },
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          isChecked = !isChecked;
-                        });
-                      },
-                      title: Text(
-                        'My personal Item',
+          child: StreamBuilder<List<Todo>?>(
+              stream: DatabaseService().listAll(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Loading();
+                }
+                List<Todo>? all = snapshot.data;
+                return Padding(
+                  padding: EdgeInsets.all(25.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Personal List',
                         style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.grey[200]),
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
-                      leading: Container(
-                        padding: EdgeInsets.all(2),
-                        width: 30.0,
-                        height: 30.0,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            shape: BoxShape.circle),
-                        child: isChecked
-                            ? Icon(
-                                Icons.check,
-                                color: Colors.white,
-                              )
-                            : Container(),
+                      Divider(),
+                      SizedBox(
+                        height: 20.0,
                       ),
-                    ),
-                  );
-                })
-          ],
-        ),
-      )),
+                      ListView.separated(
+                          separatorBuilder: (context, index) => Divider(
+                                color: Colors.grey[800],
+                              ),
+                          shrinkWrap: true,
+                          itemCount: (all as dynamic).length,
+                          itemBuilder: (context, index) {
+                            return Dismissible(
+                              key: Key((all as dynamic)[index].uid),
+                              background: Container(
+                                padding: EdgeInsets.only(left: 20.0),
+                                alignment: Alignment.centerLeft,
+                                child: Icon(Icons.delete),
+                                color: Colors.red,
+                              ),
+                              onDismissed: (direction) {
+                                print('Removed');
+                              },
+                              child: ListTile(
+                                onTap: () {
+                                  setState(() {
+                                    isChecked = !isChecked;
+                                  });
+                                },
+                                title: Text(
+                                  (all as dynamic)[index].title,
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey[200]),
+                                ),
+                                leading: Container(
+                                  padding: EdgeInsets.all(2),
+                                  width: 30.0,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context).primaryColor,
+                                      shape: BoxShape.circle),
+                                  child: isChecked
+                                      ? Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                        )
+                                      : Container(),
+                                ),
+                              ),
+                            );
+                          })
+                    ],
+                  ),
+                );
+              })),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
