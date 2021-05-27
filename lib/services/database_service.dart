@@ -16,6 +16,10 @@ class DatabaseService {
     await allCollection.doc(uid).update({'isChecked': true});
   }
 
+  Future deleteTask(uid) async {
+    await allCollection.doc(uid).delete();
+  }
+
   List<Todo>? todoFromFirestore(QuerySnapshot? snapshot) {
     if (snapshot != null) {
       return snapshot.docs.map((e) {

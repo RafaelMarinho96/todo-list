@@ -55,14 +55,14 @@ class _ListScreenState extends State<ListScreen> {
                                 child: Icon(Icons.delete),
                                 color: Colors.red,
                               ),
-                              onDismissed: (direction) {
-                                print('Removed');
+                              onDismissed: (direction) async {
+                                await DatabaseService()
+                                    .deleteTask((all as dynamic)[index].uid);
                               },
                               child: ListTile(
                                 onTap: () {
-                                  setState(() {
-                                    isChecked = !isChecked;
-                                  });
+                                  DatabaseService().completeTask(
+                                      (all as dynamic)[index].uid);
                                 },
                                 title: Text(
                                   (all as dynamic)[index].title,
@@ -78,7 +78,7 @@ class _ListScreenState extends State<ListScreen> {
                                   decoration: BoxDecoration(
                                       color: Theme.of(context).primaryColor,
                                       shape: BoxShape.circle),
-                                  child: isChecked
+                                  child: (all as dynamic)[index].isChecked
                                       ? Icon(
                                           Icons.check,
                                           color: Colors.white,
