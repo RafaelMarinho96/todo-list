@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/services/database_service.dart';
 
 class ListScreen extends StatefulWidget {
   @override
@@ -129,9 +130,10 @@ class _ListScreenState extends State<ListScreen> {
                       width: MediaQuery.of(context).size.width,
                       height: 50.0,
                       child: TextButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (titleController.text.isNotEmpty) {
-                            print('Publishing');
+                            await DatabaseService()
+                                .createNewOne(titleController.text.trim());
                             Navigator.pop(context);
                           }
                         },

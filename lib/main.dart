@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 // Import Screen
 import 'package:todo_list/screens/list_screen.dart';
 
+// Import widgets
+import 'package:todo_list/widgets/loading.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -18,6 +21,9 @@ class MyApp extends StatelessWidget {
                 child: Text('$snapshot.error'),
               ),
             );
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Loading();
           }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
