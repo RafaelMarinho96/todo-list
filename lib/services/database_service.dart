@@ -16,6 +16,10 @@ class DatabaseService {
     await allCollection.doc(uid).update({'isChecked': true});
   }
 
+  Future notCompletedTask(uid) async {
+    await allCollection.doc(uid).update({'isChecked': false});
+  }
+
   Future deleteTask(uid) async {
     await allCollection.doc(uid).delete();
   }

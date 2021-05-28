@@ -60,9 +60,14 @@ class _ListScreenState extends State<ListScreen> {
                                     .deleteTask((all as dynamic)[index].uid);
                               },
                               child: ListTile(
-                                onTap: () {
-                                  DatabaseService().completeTask(
-                                      (all as dynamic)[index].uid);
+                                onTap: () async {
+                                  if ((all as dynamic)[index].isChecked) {
+                                    await DatabaseService().notCompletedTask(
+                                        (all as dynamic)[index].uid);
+                                  } else {
+                                    await DatabaseService().completeTask(
+                                        (all as dynamic)[index].uid);
+                                  }
                                 },
                                 title: Text(
                                   (all as dynamic)[index].title,
