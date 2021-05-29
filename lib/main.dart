@@ -6,7 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:todo_list/provider/google_sign_in.dart';
 
 // Main Screen Import
-import 'package:todo_list/screens/main_screen.dart';
+import 'package:todo_list/screens/splash_screen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
               primarySwatch: Colors.pink,
-              scaffoldBackgroundColor: Colors.grey[900]),
-          home: MainScreen()),
+              scaffoldBackgroundColor: Colors.blue[700]),
+          home: SplashScreen()),
     );
   }
 }
