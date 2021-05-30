@@ -45,10 +45,12 @@ class ListWidget extends StatelessWidget {
               title: Text(
                 (tasks as dynamic)[index].title,
                 style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w600,
                     color: Colors.grey[200]),
               ),
+              subtitle: _getDateTime((tasks as dynamic)[index].createdAt,
+                  (tasks as dynamic)[index].completedAt),
               leading: Container(
                 padding: EdgeInsets.all(2),
                 width: 30.0,
@@ -71,5 +73,21 @@ class ListWidget extends StatelessWidget {
     return Container(
       child: Text('You have to add a progress bar here!'),
     );
+  }
+
+  _getDateTime(createdAt, completedAt) {
+    if (completedAt != '') {
+      return Text(
+        'Finalizado em: $completedAt',
+        style: TextStyle(fontSize: 15.0, color: Colors.white),
+      );
+    } else if (createdAt != '') {
+      return Text(
+        'Criado em: $createdAt',
+        style: TextStyle(fontSize: 15.0, color: Colors.white),
+      );
+    } else {
+      Container();
+    }
   }
 }

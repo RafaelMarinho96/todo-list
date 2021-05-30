@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.pink,
               textTheme:
                   GoogleFonts.openSansTextTheme(Theme.of(context).textTheme),
-              scaffoldBackgroundColor: Colors.blue[700]),
+              scaffoldBackgroundColor: Colors.grey[900]),
           home: SplashScreen()),
     );
   }

@@ -36,6 +36,9 @@ dependencies:
   provider: ^5.0.0
   lottie: ^1.0.1
   google_fonts: ^2.1.0
+  swipable_stack: ^0.5.0
+  speed_dial_fab: ^2.1.1
+
 
 dev_dependencies:
   flutter_test:
