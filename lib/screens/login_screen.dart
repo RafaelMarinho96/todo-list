@@ -20,13 +20,16 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Sign in to TGD and continue',
+                'Sign in to Easy List',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 28),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
               Text(
-                'Enter your email and password below to continue to the The Growing Developer and let the learning begin!',
+                'Enter your email and password below to continue to Easy List and start to manage your daily routine!',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 14),
               ),
@@ -46,9 +49,12 @@ class LoginScreen extends StatelessWidget {
                 minWidth: double.maxFinite,
                 height: 50,
                 onPressed: () {},
-                color: Colors.green[200],
+                color: Colors.pink[400],
                 child: Text('Login',
-                    style: TextStyle(color: Colors.white, fontSize: 16)),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold)),
                 textColor: Colors.white,
               ),
               SizedBox(height: 15.0),
@@ -68,7 +74,10 @@ class LoginScreen extends StatelessWidget {
                     Icon(FontAwesomeIcons.google),
                     SizedBox(width: 10),
                     Text('Sign-in using Google',
-                        style: TextStyle(color: Colors.white, fontSize: 16)),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold)),
                   ],
                 ),
                 textColor: Colors.white,
@@ -84,7 +93,8 @@ class LoginScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-          color: Colors.blue[800], border: Border.all(color: Colors.blue)),
+          color: Colors.grey[700],
+          border: Border.all(color: Colors.grey, width: 0.5)),
       child: TextField(
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 10),

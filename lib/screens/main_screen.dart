@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 // Import Screens
 import 'list_screen.dart';
 import 'login_screen.dart';
+import 'card_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
