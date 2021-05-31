@@ -37,10 +37,11 @@ class _ListScreenState extends State<ListScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      HeadingWidget(),
-                      Divider(),
+                      HeadingWidget(
+                        title: 'Easy List',
+                      ),
                       SizedBox(
-                        height: 20.0,
+                        height: 50.0,
                       ),
                       ListWidget(
                         tasks: (all as dynamic),

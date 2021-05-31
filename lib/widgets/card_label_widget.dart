@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class CardLabelWidget extends StatelessWidget {
   final String? text;
+  final Color color;
 
-  CardLabelWidget({this.text});
+  CardLabelWidget({this.text, this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,7 @@ class CardLabelWidget extends StatelessWidget {
         angle: -math.pi / 12.0,
         child: Container(
           padding: EdgeInsets.all(10.0),
-          decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFFDFDFDF), width: 4)),
+          decoration: BoxDecoration(border: Border.all(color: color, width: 4)),
           child: _getText(text),
         ));
   }
@@ -24,7 +24,7 @@ class CardLabelWidget extends StatelessWidget {
     if (text != null) {
       return Text(
         text,
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: TextStyle(color: color, fontWeight: FontWeight.bold),
       );
     } else {
       return Container();

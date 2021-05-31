@@ -59,6 +59,7 @@ class _CardsWidgetState extends State<CardsWidget> {
                 Opacity(
                   child: CardLabelWidget(
                     text: 'Concluido',
+                    color: Colors.green,
                   ),
                   opacity: isRight ? opacity : 0,
                 ),
@@ -66,12 +67,14 @@ class _CardsWidgetState extends State<CardsWidget> {
                   opacity: isLeft ? opacity : 0,
                   child: CardLabelWidget(
                     text: 'Não Concluido',
+                    color: Colors.yellow,
                   ),
                 ),
                 Opacity(
                   opacity: isDown ? opacity : 0,
                   child: CardLabelWidget(
                     text: 'Remover',
+                    color: Colors.red,
                   ),
                 ),
               ],
@@ -90,9 +93,9 @@ class _CardsWidgetState extends State<CardsWidget> {
           return Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
+            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
             child: Card(
-              color: Colors.green,
+              color: Color(0xff2B3C4E),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -32,7 +32,7 @@ class ListWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 20.0),
               alignment: Alignment.centerLeft,
               child: Icon(Icons.delete),
-              color: Colors.red,
+              color: Colors.pink,
             ),
             onDismissed: (direction) {
               onDeleteTask!((tasks as dynamic)[index].uid);

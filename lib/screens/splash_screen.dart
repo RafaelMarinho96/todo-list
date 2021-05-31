@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 300,
               child: Lottie.asset('assets/splash_animation.json'),
             ),
-            Text('Check List',
+            Text('Easy List',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
