@@ -1,16 +1,78 @@
-# todo_list
+# 📝 Simple ToDo List App (Flutter + Firebase)
 
-A new Flutter project.
+This is a simple and elegant ToDo List mobile application built with **Flutter** and integrated with **Firebase**. It allows users to:
 
-## Getting Started
+- ✅ Create tasks  
+- 🗑️ Delete tasks  
+- 🔄 View tasks in **List Mode** or **Card Mode**  
+- ☁️ Data is saved and persisted using **Firebase Firestore**
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Add new tasks with ease
+- Delete tasks with a single tap
+- Two display modes:
+  - 📄 List View
+  - 🃏 Card View
+- Data synchronization with Firebase Firestore
+- Clean and responsive UI
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Tech Stack
+
+- **Flutter** – Cross-platform mobile framework
+- **Dart** – Programming language
+- **Firebase Firestore** – Cloud NoSQL database for storing tasks
+- **Provider / Riverpod / setState** – (depending on what you used) for state management
+
+---
+
+## 📸 Video
+
+[![Watch the video](https://img.youtube.com/vi/bxaKU_Q8TsU/0.jpg)](https://youtu.be/bxaKU_Q8TsU)
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Flutter SDK installed
+- Firebase project set up
+- A device or emulator
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/flutter-todo-firebase.git
+cd flutter-todo-firebase
+```
+
+2. Install dependencies:
+
+```bash
+flutter pub get
+```
+
+3. Run the app:
+
+```bash
+flutter run
+```
+
+### 🧠 Project Structure
+
+```bash
+lib/
+├── models/        # Task model
+├── provider/       # Google provider
+├── screens/       # Reusable widgets (card_screen, list_screen)
+├── services/      # Firebase interaction logic
+├── widgets/      # Widgets components
+└── main.dart      # App entry point
+```
