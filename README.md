@@ -32,7 +32,7 @@ This is a simple and elegant ToDo List mobile application built with **Flutter**
 
 ## 📸 Video
 
-[![Watch the video](https://img.youtube.com/vi/bxaKU_Q8TsU/0.jpg)](https://youtu.be/bxaKU_Q8TsU)
+[See video](https://youtu.be/bxaKU_Q8TsU)
 
 ---
 
